@@ -1,0 +1,225 @@
+{
+	"info": {
+		"_postman_id": "e88547f7-2f7e-4100-9bf0-3f5fdcacc718",
+		"name": "Linktic Backend Dev Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33700594"
+	},
+	"item": [
+		{
+			"name": "products-service",
+			"item": [
+				{
+					"name": "Create product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "SECRET123",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Chocorramo\",\r\n    \"price\": 3500.0,\r\n    \"description\": \"Description Chocorramo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{products_base_url}}/api/products",
+							"host": [
+								"{{products_base_url}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all products",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "SECRET123",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{products_base_url}}/api/products",
+							"host": [
+								"{{products_base_url}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get product by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "SECRET123",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{products_base_url}}/api/products/{{id}}",
+							"host": [
+								"{{products_base_url}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"{{id}}"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "inventory-service",
+			"item": [
+				{
+					"name": "Get inventory for product id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "SECRET123",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{inventory_base_url}}/api/inventory/{{product_id}}",
+							"host": [
+								"{{inventory_base_url}}"
+							],
+							"path": [
+								"api",
+								"inventory",
+								"{{product_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update inventory",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "SECRET321",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\" : 1,\r\n    \"quantity\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{inventory_base_url}}/api/inventory",
+							"host": [
+								"{{inventory_base_url}}"
+							],
+							"path": [
+								"api",
+								"inventory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Purchase product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\" : 1,\r\n    \"quantity\": 1\r\n}"
+						},
+						"url": {
+							"raw": "{{inventory_base_url}}/api/inventory/purchase",
+							"host": [
+								"{{inventory_base_url}}"
+							],
+							"path": [
+								"api",
+								"inventory",
+								"purchase"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "products_base_url",
+			"value": ""
+		},
+		{
+			"key": "inventory_base_url",
+			"value": ""
+		}
+	]
+}
